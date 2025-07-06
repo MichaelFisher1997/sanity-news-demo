@@ -51,11 +51,27 @@ news-site/
 
 ## Current Status
 ✅ Basic site scaffold completed
-⏳ Ready for content integration and further customization
+✅ Sanity integration configured
+✅ Data fetching utilities created
+✅ News page updated to use real Sanity data
+⏳ Ready for Sanity project connection
+
+## Sanity Connection Setup
+1. **Create/Access your Sanity project**
+2. **Get your project credentials:**
+   - Project ID
+   - Dataset name (usually 'production')
+   - API token (if needed)
+3. **Configure environment variables:**
+   - Copy `.env.example` to `.env`
+   - Update with your actual Sanity credentials
+4. **Update configuration files:**
+   - `astro.config.mjs` - Add your project ID
+   - `sanity.config.ts` - Add your project ID
 
 ## Next Steps
-- Set up actual Sanity project and configure project ID
-- Create content fetching utilities
-- Add dynamic article pages
+- Connect to your actual Sanity project
+- Create sample articles in Sanity Studio
+- Add dynamic article pages with [slug].astro
 - Implement search functionality
 - Add more interactive features
