@@ -5,14 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
+      args:
+        - SANITY_PROJECT_ID=${SANITY_PROJECT_ID}
+        - SANITY_DATASET=${SANITY_DATASET}
+        - SANITY_API_VERSION=${SANITY_API_VERSION}
     container_name: newshub-production
     ports:
       - "80:80"
-    environment:
-      - NODE_ENV=production
-      - SANITY_PROJECT_ID=247bx5rt
-      - SANITY_DATASET=production
-      - SANITY_API_VERSION=2024-01-01
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/health"]
@@ -22,12 +21,13 @@ services:
       start_period: 40s
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.newshub.rule=Host(\`your-domain.com\`)"
+      - "traefik.http.routers.newshub.rule=Host(`hows4gww0ok8k8gog8okkg04.michaelfisher.tech`)"
       - "traefik.http.routers.newshub.entrypoints=websecure"
       - "traefik.http.routers.newshub.tls.certresolver=letsencrypt"
       - "traefik.http.services.newshub.loadbalancer.server.port=80"
     networks:
       - web
+
 
 networks:
   web:
