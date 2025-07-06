@@ -8,34 +8,36 @@ import Layout from '../layouts/Layout.astro';
       <h1 class="text-4xl font-bold text-center mb-12">Content Management</h1>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Direct Studio -->
-        <div class="bg-white rounded-lg shadow-md p-8 text-center">
-          <h2 class="text-2xl font-semibold mb-4 text-blue-600">Sanity Studio</h2>
-          <p class="text-gray-600 mb-6">
-            Access your content management system directly through Sanity's hosted studio.
-          </p>
-          <a 
-            href="https://247bx5rt.sanity.studio" 
-            target="_blank"
-            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
-            Open Studio →
-          </a>
-        </div>
-
         <!-- Management Console -->
         <div class="bg-white rounded-lg shadow-md p-8 text-center">
-          <h2 class="text-2xl font-semibold mb-4 text-green-600">Management Console</h2>
+          <h2 class="text-2xl font-semibold mb-4 text-blue-600">Sanity Content Manager</h2>
           <p class="text-gray-600 mb-6">
-            Access the full Sanity management interface for advanced settings and content management.
+            Access your content management system through Sanity's web interface.
           </p>
           <a 
             href="https://sanity.io/manage" 
             target="_blank"
-            class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
-            Open Console →
+            Open Content Manager →
           </a>
+          <p class="text-sm text-gray-500 mt-2">
+            Select project "247bx5rt" → Content
+          </p>
+        </div>
+
+        <!-- Local Studio -->
+        <div class="bg-white rounded-lg shadow-md p-8 text-center">
+          <h2 class="text-2xl font-semibold mb-4 text-green-600">Local Studio Access</h2>
+          <p class="text-gray-600 mb-6">
+            Run Sanity Studio locally for full editing capabilities.
+          </p>
+          <div class="bg-gray-800 text-white p-3 rounded-lg font-mono text-sm mb-4">
+            <code>npx sanity start</code>
+          </div>
+          <p class="text-sm text-gray-500">
+            Opens Studio at localhost:3333
+          </p>
         </div>
       </div>
 
@@ -61,8 +63,9 @@ import Layout from '../layouts/Layout.astro';
             <strong>New to content creation?</strong> Follow these simple steps:
           </p>
           <ol class="list-decimal list-inside space-y-2 text-gray-600">
-            <li>Click "Open Studio" above to access the content management system</li>
+            <li>Click "Open Content Manager" above to access the CMS</li>
             <li>Login with your Sanity account (ask admin for access if needed)</li>
+            <li>Select project "247bx5rt" then click "Content"</li>
             <li>Click "Create" → "Article" to start writing</li>
             <li>Fill in title, category, author, and content</li>
             <li>Add an image and click "Publish" when ready</li>

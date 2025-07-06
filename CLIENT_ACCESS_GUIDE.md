@@ -15,9 +15,9 @@
      - **Admin**: Full project access
 
 #### **Step 2: Client Access**
-- **Studio URL:** `https://247bx5rt.sanity.studio`
+- **Management Console:** https://sanity.io/manage (then select project → Content)
 - **From website:** Visit your site → Click "Content" in navigation
-- **Management Console:** https://sanity.io/manage (then select project)
+- **Studio URL:** `https://247bx5rt.sanity.studio` (requires deployment setup)
 
 #### **Step 3: Creating Articles**
 1. **Login** to Sanity Studio
