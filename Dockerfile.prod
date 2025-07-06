@@ -18,7 +18,7 @@ RUN npm install
 COPY . .
 
 # Build the Astro project for production
-RUN npm run build
+RUN --mount=type=secret,id=sanity_api_token . /run/secrets/sanity_api_token && npm run build
 
 
 
