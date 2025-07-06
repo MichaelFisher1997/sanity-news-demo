@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getArticleBySlug, getArticles } from '../../lib/sanity';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const articles = await getArticles();
+  return articles.map(article => ({
+    params: { slug: article.slug.current },
+    props: { article },
+  }));
+};
+
+const { article } = Astro.props;
+
+if (!article) {
+  return Astro.redirect('/404');
+}
+
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
+---
+
+<Layout title={`${article.title} - NewsHub`}>
+  <article class="py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header class="mb-8">
+        <div class="flex items-center mb-4">
+          {article.category && (
+            <span class={`text-sm font-semibold px-3 py-1 rounded ${
+              article.category === 'technology' ? 'bg-blue-100 text-blue-800' :
+              article.category === 'politics' ? 'bg-red-100 text-red-800' :
+              article.category === 'sports' ? 'bg-green-100 text-green-800' :
+              article.category === 'entertainment' ? 'bg-purple-100 text-purple-800' :
+              article.category === 'business' ? 'bg-orange-100 text-orange-800' :
+              'bg-gray-100 text-gray-800'
+            }`}>
+              {article.category.charAt(0).toUpperCase() + article.category.slice(1)}
+            </span>
+          )}
+          <span class="text-gray-500 text-sm ml-3">
+            {formatDate(article.publishedAt)}
+          </span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          {article.title}
+        </h1>
+        
+        {article.excerpt && (
+          <p class="text-xl text-gray-600 mb-6">{article.excerpt}</p>
+        )}
+        
+        {article.author && (
+          <div class="flex items-center">
+            <span class="text-gray-700 font-medium">By {article.author}</span>
+          </div>
+        )}
+      </header>
+
+      {article.mainImage && (
+        <div class="mb-8">
+          <img 
+            src={article.mainImage.asset.url} 
+            alt={article.mainImage.alt || article.title}
+            class="w-full h-96 object-cover rounded-lg shadow-lg"
+          />
+        </div>
+      )}
+
+      <div class="prose prose-lg max-w-none">
+        {article.body && article.body.length > 0 ? (
+          <div class="text-gray-800 leading-relaxed">
+            {article.body.map((block: any, index: number) => {
+              if (block._type === 'block') {
+                return (
+                  <p key={index} class="mb-4 text-lg">
+                    {block.children?.map((child: any) => child.text).join('')}
+                  </p>
+                );
+              }
+              return null;
+            })}
+          </div>
+        ) : (
+          <p class="text-gray-600 italic">No content available.</p>
+        )}
+      </div>
+
+      <footer class="mt-12 pt-8 border-t border-gray-200">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <a 
+              href="/news" 
+              class="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              ← Back to News
+            </a>
+          </div>
+          <div class="text-sm text-gray-500">
+            Published on {formatDate(article.publishedAt)}
+          </div>
+        </div>
+      </footer>
+    </div>
+  </article>
+</Layout>

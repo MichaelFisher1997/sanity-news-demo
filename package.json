@@ -9,10 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@portabletext/react": "^3.2.1",
     "@sanity/astro": "^3.2.6",
     "@sanity/client": "^6.29.1",
+    "@sanity/vision": "^3.97.1",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.11.0",
+    "sanity": "^3.97.1",
     "tailwindcss": "^4.1.11"
   }
 }
