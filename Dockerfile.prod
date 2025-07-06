@@ -1,0 +1,41 @@
+ Use a Node.js base image for building the Astro project
+FROM node:lts AS builder
+
+
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json (or yarn.lock)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+
+
+# Copy the rest of the application code
+COPY . .
+
+# Build the Astro project for production
+RUN npm run build
+
+
+
+# Use a lightweight web server to serve the static files
+FROM nginx:latest
+
+# Remove default nginx config
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy the custom Nginx configuration
+COPY ./nginx.conf /etc/nginx/nginx.conf
+
+# Copy the built Astro project from the builder stage to Nginx's static content directory
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Expose port 6543 for the web server
+EXPOSE 9876
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
