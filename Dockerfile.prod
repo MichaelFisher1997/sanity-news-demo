@@ -1,4 +1,4 @@
- Use a Node.js base image for building the Astro project
+ # Use a Node.js base image for building the Astro project
 FROM node:lts AS builder
 
 
