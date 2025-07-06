@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - NewsHub">
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center mb-12">About NewsHub</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-gray-600 mb-8 text-center">
+          NewsHub is a modern news platform built with cutting-edge technology to deliver the latest news and insights.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold mb-4">Our Mission</h3>
+            <p class="text-gray-600">
+              To provide accurate, timely, and comprehensive news coverage that keeps our readers informed about the world around them.
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold mb-4">Our Values</h3>
+            <p class="text-gray-600">
+              We believe in journalistic integrity, factual reporting, and presenting news in an accessible and engaging format.
+            </p>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-lg p-8">
+          <h3 class="text-2xl font-semibold mb-6 text-center">Technical Stack</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+              <h4 class="font-semibold text-orange-600">Astro</h4>
+              <p class="text-sm text-gray-600">Static Site Generator</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+              <h4 class="font-semibold text-blue-600">TypeScript</h4>
+              <p class="text-sm text-gray-600">Type-safe Development</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+              <h4 class="font-semibold text-cyan-600">Tailwind CSS</h4>
+              <p class="text-sm text-gray-600">Utility-first CSS</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+              <h4 class="font-semibold text-red-600">Sanity</h4>
+              <p class="text-sm text-gray-600">Headless CMS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

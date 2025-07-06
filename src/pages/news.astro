@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="News - NewsHub">
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center mb-12">Latest News</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="h-48 bg-gray-300"></div>
+          <div class="p-6">
+            <div class="flex items-center mb-2">
+              <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Technology</span>
+              <span class="text-gray-500 text-sm ml-2">2 hours ago</span>
+            </div>
+            <h2 class="text-xl font-semibold mb-2 hover:text-blue-600">
+              <a href="/article/sample-tech-article">Sample Technology Article</a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              This is a sample excerpt for a technology article. In a real implementation, this would be populated from Sanity CMS.
+            </p>
+            <div class="flex items-center">
+              <span class="text-sm text-gray-500">By John Doe</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="h-48 bg-gray-300"></div>
+          <div class="p-6">
+            <div class="flex items-center mb-2">
+              <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded">Politics</span>
+              <span class="text-gray-500 text-sm ml-2">4 hours ago</span>
+            </div>
+            <h2 class="text-xl font-semibold mb-2 hover:text-blue-600">
+              <a href="/article/sample-politics-article">Sample Politics Article</a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              This is a sample excerpt for a politics article. In a real implementation, this would be populated from Sanity CMS.
+            </p>
+            <div class="flex items-center">
+              <span class="text-sm text-gray-500">By Jane Smith</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="h-48 bg-gray-300"></div>
+          <div class="p-6">
+            <div class="flex items-center mb-2">
+              <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Sports</span>
+              <span class="text-gray-500 text-sm ml-2">6 hours ago</span>
+            </div>
+            <h2 class="text-xl font-semibold mb-2 hover:text-blue-600">
+              <a href="/article/sample-sports-article">Sample Sports Article</a>
+            </h2>
+            <p class="text-gray-600 mb-4">
+              This is a sample excerpt for a sports article. In a real implementation, this would be populated from Sanity CMS.
+            </p>
+            <div class="flex items-center">
+              <span class="text-sm text-gray-500">By Mike Johnson</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-gray-600">
+          <strong>Note:</strong> These are placeholder articles. Connect to your Sanity CMS to display real content.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
