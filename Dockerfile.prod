@@ -1,20 +1,16 @@
  # Use a Node.js base image for building the Astro project
 FROM node:lts AS builder
 
-
-
 # Set the working directory inside the container
 WORKDIR /app
 
 ARG SANITY_PROJECT_ID
 ARG SANITY_DATASET
 ARG SANITY_API_VERSION
-ARG SANITY_TOKEN
 
 ENV SANITY_PROJECT_ID=$SANITY_PROJECT_ID
 ENV SANITY_DATASET=$SANITY_DATASET
 ENV SANITY_API_VERSION=$SANITY_API_VERSION
-ENV SANITY_TOKEN=$SANITY_TOKEN
 
 # Copy package.json and package-lock.json (or yarn.lock)
 COPY package*.json ./
@@ -22,15 +18,11 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-
-
 # Copy the rest of the application code
 COPY . .
 
 # Build the Astro project for production
-RUN --mount=type=secret,id=sanity_api_token . /run/secrets/sanity_api_token && npm run build
-
-
+RUN --mount=type=secret,id=SANITY_TOKEN SANITY_TOKEN=$(cat /run/secrets/SANITY_TOKEN) npm run build
 
 # Use a lightweight web server to serve the static files
 FROM nginx:latest
