@@ -5,7 +5,7 @@ import { visionTool } from '@sanity/vision'
 export default defineConfig({
   name: 'news-site',
   title: 'News Site',
-  projectId: 'your-project-id',
+  projectId: '247bx5rt',
   dataset: 'production',
   plugins: [structureTool(), visionTool()],
   schema: {
