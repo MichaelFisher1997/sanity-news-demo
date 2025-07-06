@@ -6,6 +6,16 @@ FROM node:lts AS builder
 # Set the working directory inside the container
 WORKDIR /app
 
+ARG SANITY_PROJECT_ID
+ARG SANITY_DATASET
+ARG SANITY_API_VERSION
+ARG SANITY_TOKEN
+
+ENV SANITY_PROJECT_ID=$SANITY_PROJECT_ID
+ENV SANITY_DATASET=$SANITY_DATASET
+ENV SANITY_API_VERSION=$SANITY_API_VERSION
+ENV SANITY_TOKEN=$SANITY_TOKEN
+
 # Copy package.json and package-lock.json (or yarn.lock)
 COPY package*.json ./
 
